@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "path": "/",
+      "title": "Home",
+      "component": Home
+    },
+    {
+      "path": "/account",
+      "title": "Account",
+      "component": Account
+    },
+    {
+      "path": "/tacos",
+      "title": "Tacos",
+      "component": Tacos,
+      "routes": [
+        {
+          "path": "/tacos/bus",
+          "component": Bus
+        },
+        {
+          "path": "/tacos/cart",
+          "component": Cart
+        }
+      ]
+    }
+  ]
+}

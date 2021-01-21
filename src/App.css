@@ -1,0 +1,114 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.policyBanner {
+  background: lightgreen;
+  padding: 30px;
+}
+
+.columns {
+  display: flex;
+  width: 96%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.header {
+  width: 35%;
+}
+
+.policyDetails {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.policyDetails > div {
+  
+}
+
+.policyDetails__bottom {
+  padding: 20px;
+  background: lightgreen;
+  border-radius: 10px;
+  flex: 1 1 50%;
+}
+
+.policyDetails__top {
+  flex: 1 1 100%;
+  margin-bottom: 20px;
+}
+
+.policyDetails__actions {
+  flex: 1 1 50%;
+}
+
+.countdown {
+  height: 10px;
+  background: #ccc;
+  border-radius: 10px;
+  position: relative;
+}
+
+.countdown__indicator {
+  height: 35px;
+  width: 36px;
+  background: lightgreen;
+  display: block;
+  border-radius: 50%;
+  border: 4px solid white;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 0%;
+  box-shadow: 0 0 10px #ccc;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.countdown__remaining {
+  display: block;
+  height: 10px;
+  background: lightgreen;
+  border-radius: 10px;
+  right: 0;
+  width: 100%;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+}

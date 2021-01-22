@@ -2,7 +2,8 @@ import React, {useRef,  useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Link
 } from "react-router-dom";
 
 export function RouteWithSubRoutes(props) {
@@ -69,4 +70,35 @@ export function daysInAYear(year)
 
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function convertLink(string) {
+  const splitString = string.split('<a');
+
+  splitString.map(str => {
+    if(str.indexOf('</a>') > 0) {
+      const link = str.split('>');
+      const linkAtts = link[0].split('"');
+      const label = link[1].split('<')[0];
+      let classes = '';
+      let href='';
+
+      linkAtts.map((atts, i) => {
+        if(atts.indexOf('class') > 0){
+          classes = linkAtts[i + 1];
+        }
+
+        if(atts.indexOf('href') > 0){
+          href = linkAtts[i + 1];
+        }
+        return true;
+      });
+
+      // console.log(classes);
+      // console.log(href);
+      // console.log(label);
+
+      return <Link to={label} className={classes}>{label}</Link>;
+    }
+  })
 }

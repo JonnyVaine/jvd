@@ -29,7 +29,6 @@ class App extends React.Component {
     fetch('https://www.jonnyvaine.co.uk/wp-json/wp-api-menus/v2/menus/2')
     .then(res => res.json())
     .then((result) => {
-      console.log(result);
       self.setState({
         navItems: result.items
       });
@@ -82,8 +81,6 @@ class App extends React.Component {
           {isLoaded && (
             <Route render={({ location }) => {
               const { pathname, key } = location;
-              console.log(pathname);
-              console.log(location);
               return (
                 <TransitionGroup component={null}>
                   <Transition

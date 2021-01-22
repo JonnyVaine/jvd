@@ -1,16 +1,18 @@
 import React from 'react';
 
-export default function Page({
-  title, children
-}) {
+import Meta from "./Meta";
+import Wrapper from "./Wrapper";
+
+
+export default function Page(props) {
+  const {children, title} = props
   return (
     <div className="page">
-      <h1>{title}</h1>
-      <div className="content">
-        <div className="content--inner">
-          {children}
-        </div>
-      </div>
+      <Meta {...props} />
+
+      <Wrapper title={title.rendered}>
+        {children}
+      </Wrapper>
     </div>
   )
 }

@@ -1,16 +1,19 @@
-import React from 'react';
+import React from "react";
+import { Helmet } from "react-helmet";
 
-export default function Meta({
-  title, children
-}) {
+export default function Meta(props) {
+  const { yoast_title, yoast_meta } = props;
   return (
-    <div className="page">
-      <h1>{title}</h1>
-      <div className="content">
-        <div className="content--inner">
-          {children}
-        </div>
-      </div>
-    </div>
+    <Helmet>
+      <title>{yoast_title}</title>
+      {yoast_meta.map(meta_value => {
+        return (
+          <meta
+            name={meta_value.name || meta_value.property}
+            content={meta_value.content}
+          />
+        );
+      })}
+    </Helmet>
   )
 }

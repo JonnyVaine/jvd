@@ -1,14 +1,17 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import Wrapper from "../shared/Wrapper";
+import Page from '../shared/Page';
+import ContentBlock from "../shared/ContentBlock";
 
-export default function Contact({
-  title, content
-}) {
+
+export default function Contact(props) {
+  const {content} = props;
   return (
-    <Wrapper title={title.rendered}>
-      {content.rendered}
-    </Wrapper>
+    <Page {...props} >
+      <ContentBlock>
+        {content.rendered}
+      </ContentBlock>
+    </Page>
   )
 }

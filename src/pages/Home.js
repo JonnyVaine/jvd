@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import Wrapper from "../shared/Wrapper";
+
+import Page from '../shared/Page';
 import ContentBlock from "../shared/ContentBlock";
 
-export default function Home({
-  title, content, acf
-}) {
+export default function Home(props) {
+  const {content, acf} = props;
   return (
-    <Wrapper title={title.rendered}>
+    <Page {...props} >
       <ContentBlock>
         {content.rendered}
       </ContentBlock>
@@ -15,6 +15,6 @@ export default function Home({
       <ContentBlock>
         {acf.second_column}
       </ContentBlock>
-    </Wrapper>
+    </Page>
   )
 }

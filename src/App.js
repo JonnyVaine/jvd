@@ -10,9 +10,6 @@ import Work from './pages/Work';
 import Contact from './pages/Contact';
 
 import Loading from "./modules/Loading";
-
-import { replaceLink } from "./util/util";
-
 class App extends React.Component {
   constructor (props) {
     super(props);
@@ -37,7 +34,7 @@ class App extends React.Component {
     });
 
 
-    fetch('https://www.jonnyvaine.co.uk/wp-json/wp/v2/pages')
+    fetch('https://www.jonnyvaine.co.uk/wp-json/wp/v2/pages?_embed')
     .then(res => res.json())
     .then(
       (result) => {
@@ -47,8 +44,6 @@ class App extends React.Component {
             pages.push(pages.splice(i, 1)[0]);
           }
         });
-
-        console.log(pages);
 
         self.setState({
           pages: pages,
@@ -62,8 +57,6 @@ class App extends React.Component {
         }, 500);
       }
     )
-
-    // window.addEventListener('click', replaceLink);
   }
 
   render() {
@@ -102,7 +95,7 @@ class App extends React.Component {
                           key={i}
                           path={pageSlug}
                           render={props => (
-                            <ComponentName {...page}  />
+                            <ComponentName {...page} />
                           )}
                         />)
                       })}

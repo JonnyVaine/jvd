@@ -6,9 +6,9 @@ import ContentBlock from "../shared/ContentBlock";
 
 
 export default function Contact(props) {
-  const {content} = props;
+  const {content, _embedded, title} = props;
   return (
-    <Page {...props} >
+    <Page {...props} bannerImages={_embedded["wp:featuredmedia"]} bannerTitle={title.rendered}>
       <ContentBlock>
         {content.rendered}
       </ContentBlock>

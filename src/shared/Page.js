@@ -1,15 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import Meta from "./Meta";
 import Wrapper from "./Wrapper";
+import BannerImage from "../modules/BannerImage";
 
 export default function Page(props) {
-  const {children, title, hideTitle} = props;
+  const {children, title, bannerImages, bannerTitle, acf, hasBannerImage} = props;
+  const showBanner = acf.has_banner !== '' && bannerImages.length > 0;
+
+  console.log(props);
+
   return (
     <div className="page">
       <Meta {...props} />
 
-      <Wrapper title={title.rendered} hideTitle={hideTitle}>
+      {showBanner && (
+        <BannerImage images={bannerImages} title={bannerTitle} />
+      )}
+
+      <Wrapper title={title.rendered} hideTitle={showBanner}>
         {children}
       </Wrapper>
     </div>
@@ -17,5 +26,7 @@ export default function Page(props) {
 }
 
 Page.defaultProps = {
-  hideTitle: false
+  hideTitle: false,
+  bannerImages: [],
+  bannerTitle: ''
 }

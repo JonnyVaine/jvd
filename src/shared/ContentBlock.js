@@ -18,7 +18,7 @@ export default function ContentBlock({
         const classes = node.attribs.class ? node.attribs.class : '';
         const label = node.children[0].data;
 
-        return <Link to={`/${href}`} className={classes}>{label}</Link>
+        return <Link key={label} to={`/${href}`} className={classes}>{label}</Link>
       } 
     }
   }

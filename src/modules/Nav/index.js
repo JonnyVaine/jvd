@@ -7,7 +7,7 @@ export default function Nav({
   links
 }) {
   return (
-    <nav className="nav">
+    <nav className={`nav`}>
       <ul className="nav__list desktop">
         {links.map((link, i) => {
           const isHome = link.object_slug === 'home';

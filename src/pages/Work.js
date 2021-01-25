@@ -5,9 +5,9 @@ import ContentBlock from "../shared/ContentBlock";
 
 
 export default function Work(props) {
-  const {title, content} = props;
+  const {title, content, _embedded} = props;
   return (
-    <Page {...props} >
+    <Page {...props}  bannerImages={_embedded["wp:featuredmedia"]} bannerTitle={title.rendered}>
       <ContentBlock>
         {content.rendered}
       </ContentBlock>

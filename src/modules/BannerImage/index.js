@@ -2,6 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import ContentBlock from "../../shared/ContentBlock";
 
+import './BannerImage.scss';
+
 export default function BannerImage(props) {
   const {images, title} = props;
 
@@ -21,10 +23,12 @@ export default function BannerImage(props) {
   return (
     <div className={baseClass} >
       <Slider {...settings} className={`${baseClass}__container`}>
-        {images.map(image => {
+        {images.map((image, i) => {
+          const imageUrl = image.url !== undefined ? image.url : image.source_url !== undefined ? image.source_url : '';
+
           return (
-            <div className={`${baseClass}__slide`}>
-              <img src={image.url} />
+            <div key={i} className={`${baseClass}__slide`}>
+              <img src={imageUrl} />
             </div>
           )
         })}

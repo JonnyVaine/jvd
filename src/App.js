@@ -11,6 +11,8 @@ import Contact from './pages/Contact';
 
 import Loading from "./modules/Loading";
 
+import { replaceLink } from "./util/util";
+
 class App extends React.Component {
   constructor (props) {
     super(props);
@@ -61,6 +63,7 @@ class App extends React.Component {
       }
     )
 
+    // window.addEventListener('click', replaceLink);
   }
 
   render() {

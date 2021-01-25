@@ -102,3 +102,13 @@ export function convertLink(string) {
     }
   })
 }
+
+export function replaceLink(e) {
+  e.preventDefault();
+  console.log('link clicked');
+  console.log(e);
+  console.log(e.target);
+
+  // if(e.target)
+
+}

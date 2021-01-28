@@ -32,6 +32,19 @@ export default function App (props) {
       setNavLoaded(true);
     });
   }, [navLoaded]);
+
+  const [posts, setPosts] = useState([]),
+        [postsLoaded, setPostsLoaded] = useState(false);
+
+  useEffect(() => {
+    fetch("https://www.jonnyvaine.co.uk/wp-json/wp/v2/posts?_embed")
+    .then(res => res.json())
+    .then(result => {
+      console.log(result);
+      setPosts(result);
+      setPostsLoaded(true);
+    })
+  }, [postsLoaded]);
     
   useEffect(() => {
     fetch('https://www.jonnyvaine.co.uk/wp-json/wp/v2/pages?_embed')

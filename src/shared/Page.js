@@ -10,6 +10,10 @@ export default function Page(props) {
 
   console.log(props);
 
+  useEffect(() => {
+    hasBannerImage(showBanner);
+  });
+
   return (
     <div className="page">
       <Meta {...props} />

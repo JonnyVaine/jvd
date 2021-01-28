@@ -28,7 +28,7 @@ export default function BannerImage(props) {
 
           return (
             <div key={i} className={`${baseClass}__slide`}>
-              <img src={imageUrl} />
+              <img src={imageUrl} loading="lazy" />
             </div>
           )
         })}

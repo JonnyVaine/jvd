@@ -9,14 +9,20 @@ body {
 .nav {
   // margin: 0 auto;
   width: 100%;
+  max-width: unset;
   position: relative;
   z-index: 1;
+  filter: invert(0);
+  // transition: filter 0.3s linear;
 
-  // &.nav--inverted {
-  //   filter: invert(1);
-  //   margin-bottom: 0;
-  // }
+  &.nav--inverted {
+    filter: invert(1);
+  }
 
+  .nav__list {
+    max-width: 1200px;
+    margin: auto;
+  }
 
   li {
     display: inline-block;

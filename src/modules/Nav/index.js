@@ -4,10 +4,10 @@ import {
 } from "react-router-dom";
 
 export default function Nav({
-  links
+  links, invertColours
 }) {
   return (
-    <nav className={`nav`}>
+    <nav className={`nav ${invertColours ? 'nav--inverted': ''}`}>
       <ul className="nav__list desktop">
         {links.map((link, i) => {
           const isHome = link.object_slug === 'home';
